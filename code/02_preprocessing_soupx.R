@@ -9,7 +9,7 @@
 # ------------------------------------------------------------------------------
 #
 # Date: 10-11-2021
-# Written by: Natalie Piehl, Emma Tapp
+# Written by: Emma Tapp, Natalie Piehl
 # Summary: Remove GEX background contamination with SoupX 
 #
 #-------------------------------------------------------------------------------
