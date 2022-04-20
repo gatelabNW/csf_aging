@@ -8,7 +8,7 @@
 # -----                                                                    -----
 # ------------------------------------------------------------------------------
 #
-# Date: 10-11-2022
+# Date: 10-11-2021
 # Written by: Natalie Piehl, Emma Tapp
 # Summary: Integrate GEX data and generate cell type annotated clusters
 #
@@ -20,7 +20,6 @@ library_vector <- c("tidyverse", "ggrepel", "ggthemes", "grid",
                     "Seurat", "scales")
 if (!require("pacman")) install.packages("pacman")
 pacman::p_load(char = library_vector)
-
 
 # Initialize paths
 seurat_object <- "path/to/seurat_object"
