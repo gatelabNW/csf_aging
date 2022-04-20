@@ -171,11 +171,11 @@ table(s@meta.data$clonal)
 
 # Define Sex Groups
 f <- c('A1', 'A7', 'A8', 'B2', 'B6', 'B7', 'B8',
-       'C2', 'C3', 'C7', 'C8', 'D1', 'D5', 'D6', 'D8',
-       'E1', 'E2', 'E3', 'E4', 'E5', 'E7', 'F1', 'F2', 'F4', 'F5', 'F8',
+       'C2', 'C3', 'C8', 'D1', 'D5', 'D6', 'D8',
+       'E1', 'E2', 'E3', 'E4', 'E5', 'E7', 'F1', 'F2', 'F4', 'F8',
        'G2', 'G3', 'G4', 'G6', 'G7', 'G8', 'H2', 'H3', 'H6', 'H7')
-m <- c('A2', 'A3', 'A4', 'A5', 'A6', 'B1', 'B3', 'B4', 'B5',
-       'C1', 'C4', 'C5', 'C6', 'D2', 'D3', 'D4', 'D7',
+m <- c('A2', 'A4', 'A5', 'A6', 'B1', 'B3', 'B4', 'B5',
+       'C1', 'C4', 'C5', 'C6', 'D2', 'D3', 'D4',
        'E8', 'F3', 'F6', 'F7',
        'G1', 'G5', 'H1', 'H4', 'H5', 'H8')
 
@@ -188,13 +188,10 @@ s@meta.data$sex[
 table(s@meta.data$sex)
 
 # Define Age Groups
-x36 <- c('A3')
 x48 <- c('D3')
 x54 <- c('H7', 'C4')
 x55 <- c('H2')
 x56 <- c('E5')
-x57 <- c('D7')
-x58 <- c('F5')
 x62 <- c('G3', 'H6')
 x63 <- c('A7', 'C3', 'E1', 'G1')
 x64 <- c('B7', 'D8', 'G2', 'G6')
@@ -211,15 +208,13 @@ x75 <- c('H5')
 x76 <- c('B6', 'B8', 'D6')
 x77 <- c('A2', 'C5')
 x78 <- c('A6', 'F6')
-x79 <- c('C7', 'E7', 'D4', 'H1')
+x79 <- c('E7', 'D4', 'H1')
 x80 <- c('H4')
 x81 <- c('F3')
 x82 <- c('C6')
 
 # Add age to metadata
 s@meta.data$age <- "NA"
-s@meta.data$age[
-  which(s@meta.data$ID %in% x36)] <- 36
 s@meta.data$age[
   which(s@meta.data$ID %in% x48)] <- 48
 s@meta.data$age[
@@ -275,7 +270,7 @@ s@meta.data$age[
 table(s@meta.data$age)
 
 # Define sort day groups
-sort_day1 <- c('A1', 'A2', 'A3', 'A4',
+sort_day1 <- c('A1', 'A2', 'A4',
                'B1', 'B2', 'B3', 'B4',
                'C1', 'C2', 'C3', 'C4',
                'D1', 'D2', 'D3', 'D4',
@@ -285,10 +280,10 @@ sort_day1 <- c('A1', 'A2', 'A3', 'A4',
                'H1', 'H2', 'H3', 'H4')
 sort_day2 <- c('A5', 'A6', 'A7', 'A8',
                'B5', 'B6', 'B7', 'B8',
-               'C5', 'C6', 'C7', 'C8',
-               'D5', 'D6', 'D7', 'D8',
-               'E5', 'E6', 'E7', 'E8',
-               'F5', 'F6', 'F7', 'F8',
+               'C5', 'C6', 'C8',
+               'D5', 'D6', 'D8',
+               'E5', 'E7', 'E8',
+               'F6', 'F7', 'F8',
                'G5', 'G6', 'G7', 'G8',
                'H5', 'H6', 'H7', 'H8')
 
