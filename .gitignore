@@ -4,3 +4,5 @@
 .Ruserdata
 ._*
 .DS_Store
+renv/library/
+renv/staging/
