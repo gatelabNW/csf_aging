@@ -10,7 +10,7 @@
 #
 # Date: 02-11-2022
 # Written by: Natalie Piehl
-# Summary: Generate HC LOESS trajectories
+# Summary: Generate HC and CI LOESS trajectories
 #
 #-------------------------------------------------------------------------------
 # Initialization
@@ -33,7 +33,7 @@ dir.create(output_parent_dir, showWarnings = FALSE, recursive = TRUE)
 # clonal: "C", "NC", "compare", "all"
 clonal <- "all"
 # Diagnosis: "HC", "MCI/AD", "compare", "all"
-Diagnosis <- "HC"
+Diagnosis <- "compare"
 # sex: "f", "m", "compare", "all"
 sex <- "all"
 # cell_type: "all", celltype, "allandcelltype"
@@ -314,7 +314,8 @@ cluster_loess <- function(data_scaled, output_dir, cell_type_label,
         
         # Run plotting
         plot <- line_plot_of_loess(data_long, color = color_vector[i],
-                                   data_compare = data_long_compare)
+                                   data_compare = data_long_compare, 
+                                   plot_ind_genes = FALSE)
       }
       
       # Append plot to list
