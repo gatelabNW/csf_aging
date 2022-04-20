@@ -8,9 +8,12 @@
 # -----                                                                    -----
 # ------------------------------------------------------------------------------
 #
-# Date: 01-18-2022
+# Date: 04-11-2022
 # Written by: Natalie Piehl
-# Summary: Generate UMAP of normalized clone frequency
+# Summary: Generate UMAP of C and NC cells
+#
+# - Coexpression UMAP of CXCR6 and CXCR4 generated with the ShinyCell app
+#   at https://gatelabnu.shinyapps.io/csf_aging/
 #
 #-------------------------------------------------------------------------------
 # Initialization
@@ -34,15 +37,18 @@ dir.create(output_dir, showWarnings = FALSE, recursive = TRUE)
 load(seurat_object)
 
 # Set Ident to normalized frequency
-s <- SetIdent(s, value = "normalized_frequency")
+s <- SetIdent(s, value = "clonal")
+
+# Remove NA cells
+s <- subset(s, clonal %in% c("C", "NC"))
 
 # Generate UMAP
 myplot <- FeaturePlot(s,
-                      features = c("normalized_frequency"), pt.size = 1,
-                      cols = c("grey88", "deeppink"), reduction = "umap",
+                      features = c("clonal"), pt.size = 1,
+                      cols = c("aquamarine2", "deeppink"), reduction = "umap",
                       order = TRUE
 )
 set_panel_size(myplot,
-               file = paste0(output_dir, "normalized_frequency.pdf"),
+               file = paste0(output_dir, "clonality.pdf"),
                width = unit(5, "in"), height = unit(4, "in")
 )

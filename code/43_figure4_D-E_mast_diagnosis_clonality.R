@@ -37,7 +37,7 @@ padj.thresh <- 0.01
 lfc.thresh <- 0.25
 
 #------------------------------------------------------------------------------
-# Data formatting and processing
+# Run DE (Fig 4D)
 
 # Load Seurat object
 load(seurat_object)
