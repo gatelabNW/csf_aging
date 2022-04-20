@@ -9,15 +9,15 @@
 # ------------------------------------------------------------------------------
 #
 # Date: 10-11-2022
-# Written by: Natalie Piehl
-# Summary: Remove GEX background contamination with SoupX 
+# Written by: Natalie Piehl, Emma Tapp
+# Summary: Remove doublets and perform initial QC on scRNA-TCRseq data
 #
 #-------------------------------------------------------------------------------
 # Initialization
 
 # Load in libraries
 library_vector <- c("plyr", "tidyverse", "ggrepel", "ggthemes", "grid",
-                    "Seurat", "DoubletFinder", "tidyverse")
+                    "Seurat", "DoubletFinder")
 if (!require("pacman")) install.packages("pacman")
 pacman::p_load(char = library_vector)
 
@@ -27,6 +27,10 @@ contigs_merged_path <- "/path/to/merged_and_formatted/contigs_matrix"
 paired_clonotypes_path <- "/path/to/merged_and_formatted/clonotypes_matrix"
 qc_plot_dir <- "/path/to/export/qc_plots/to"
 seurat_obj_dir <- "/path/to/export/seurat_object/to"
+
+# Create output directories
+dir.create(qc_plot_dir, showWarnings = FALSE, recursive = TRUE)
+dir.create(seurat_obj_dir, showWarnings = FALSE, recursive = TRUE)
 
 #-------------------------------------------------------------------------------
 # Load in SoupX corrected counts

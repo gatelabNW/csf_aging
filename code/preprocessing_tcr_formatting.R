@@ -9,8 +9,8 @@
 # ------------------------------------------------------------------------------
 #
 # Date: 10-11-2022
-# Written by: Natalie Piehl
-# Summary: Remove GEX background contamination with SoupX 
+# Written by: Natalie Piehl, Emma Tapp
+# Summary: Format TCR data to match Seurat and merge samples into one file
 #
 #-------------------------------------------------------------------------------
 # Initialization
@@ -23,6 +23,9 @@ pacman::p_load(char = library_vector)
 # Organize inputs
 tcr_dir <- "/path/to/cellranger_vdj/results"
 output_dir <- "/path/to/output/directory"
+
+# Create output directory
+dir.create(output_dir, showWarnings = FALSE, recursive = TRUE)
 
 #-------------------------------------------------------------------------------
 # Merge and format contig matrices

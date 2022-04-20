@@ -9,7 +9,7 @@
 # ------------------------------------------------------------------------------
 #
 # Date: 10-11-2022
-# Written by: Natalie Piehl
+# Written by: Natalie Piehl, Emma Tapp
 # Summary: Remove GEX background contamination with SoupX 
 #
 #-------------------------------------------------------------------------------
@@ -24,6 +24,9 @@ pacman::p_load(char = library_vector)
 # Define inputs
 gex_dir <- "/path/to/cellranger_count/results"
 soupx_dir <- "/path/to/soupx_output/directory"
+
+# Create output directory
+dir.create(soupx_dir, showWarnings = FALSE, recursive = TRUE)
 
 #-------------------------------------------------------------------------------
 # Run SoupX
