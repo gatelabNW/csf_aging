@@ -9,7 +9,7 @@ Cerebrospinal fluid (CSF) contains a tightly regulated, specialized immune syste
 ## About
 This repository contains code used to process and analyze scRNA-TCRseq data from the **Distinct cerebrospinal fluid immune perturbations in healthy brain aging and cognitive impairment** study. 
 
-All ```R``` dependencies are listed in the ```renv.lock``` file. Upon opening the ```csf_aging.Rproj``` file in ```Rstudio```, the ```renv``` package should automatically download and activate. Afterwards, the user can run ```renv::restore()``` from the project root to download all necessary packages for the study. 
+All ```R``` dependencies are listed in the ```renv.lock``` file. Upon opening the ```csf_aging.Rproj``` file in ```Rstudio```, the ```renv``` package should automatically download and activate. Afterwards, the user can run ```renv::restore()``` to download all necessary packages for the study. 
 
 The dataset can be viewed and analyzed interactively in our [modified ShinyCell app](https://gatelabnu.shinyapps.io/csf_aging/).
 
