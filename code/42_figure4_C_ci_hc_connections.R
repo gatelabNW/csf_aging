@@ -12,7 +12,7 @@
 # Written by: Natalie Piehl
 # Summary: Identify number of >0.9 Lsim connections between HC and CI samples
 #
-# - Visualization done in Prism 9.2.0
+# - Fig 4C visual created with Prism 9.2.0
 #
 #-------------------------------------------------------------------------------
 # Initialization

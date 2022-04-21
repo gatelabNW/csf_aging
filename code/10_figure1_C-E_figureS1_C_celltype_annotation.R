@@ -70,7 +70,7 @@ s <- IntegrateData(anchorset = anchors, normalization.method = "SCT")
 save(s, file = paste0(output_dir, "s_integrated"))
 
 #------------------------------------------------------------------------------
-# PCA Visualization
+# PCA Visualization (Fig S1C)
 
 # Set assay to integrated
 DefaultAssay(object = s) <- "integrated"
