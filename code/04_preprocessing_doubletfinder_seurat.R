@@ -16,10 +16,15 @@
 # Initialization
 
 # Load in libraries
-library_vector <- c("plyr", "tidyverse", "ggrepel", "ggthemes", "grid",
-                    "Seurat", "DoubletFinder")
-if (!require("pacman")) install.packages("pacman")
-pacman::p_load(char = library_vector)
+suppressMessages({
+  library("plyr")
+  library("tidyverse")
+  library("ggrepel")
+  library("ggthemes")
+  library("grid")
+  library("Seurat")
+  library("DoubletFinder")
+})
 
 # Organize inputs
 soupx_dir <- "/path/to/soupx_corrected/gex_matrices"
