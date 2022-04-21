@@ -338,7 +338,7 @@ set_panel_size(myplot, file=paste0(qc_plot_dir, "percent.mt_ID.pdf"),
                width=unit(8, "in"), height=unit(4, "in"))
 
 # Add levels to age so it plots in order
-s@meta.data$age <- factor(s@meta.data$age, levels = c(36, 48, 54, 55, 56, 57, 58,
+s@meta.data$age <- factor(s@meta.data$age, levels = c(48, 54, 55, 56, 57, 58,
                                                       62, 63, 64, 65, 66, 67, 69,
                                                       70, 71, 72, 73, 74, 75, 76,
                                                       77, 78, 79, 80, 81, 82))
