@@ -10,7 +10,7 @@
 #
 # Date: 04-05-2022
 # Written by: Natalie Piehl
-# Summary: Generate LOESS curves of LM + MAST shared DEGs
+# Summary: Generate violin plots of CXCR4 and CXCR6 expression
 #
 # - Fig S4D created using pseudobulked data with Prism 9.2.0
 #
