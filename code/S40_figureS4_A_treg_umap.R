@@ -10,7 +10,7 @@
 #
 # Date: 03-04-2022
 # Written by: Natalie Piehl
-# Summary: Generate LOESS curves of LM + MAST shared DEGs
+# Summary: Generate UMAPs of Tregs
 #
 #-------------------------------------------------------------------------------
 # Initialization
