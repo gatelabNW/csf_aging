@@ -16,10 +16,15 @@
 # Initialization
 
 # Load in libraries
-library_vector <- c("tidyverse", "ggrepel", "ggthemes", "grid",
-                    "Seurat", "scales")
-if (!require("pacman")) install.packages("pacman")
-pacman::p_load(char = library_vector)
+suppressMessages({
+  library("plyr")
+  library("tidyverse")
+  library("ggrepel")
+  library("ggthemes")
+  library("grid")
+  library("Seurat")
+  library("scales")
+})
 
 # Initialize paths
 seurat_object <- "path/to/seurat_object"

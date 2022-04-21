@@ -19,11 +19,18 @@
 # Initialization
 
 # Load in libraries
-library_vector <- c("plyr", "gridExtra", "Seurat", "Matrix", "tidyverse",
-                    "SoupX", "DropletUtils", "purrr", "Hmisc", "ggthemes",
-                    "ggrepel", "grid")
-if (!require("pacman")) install.packages("pacman")
-pacman::p_load(char = library_vector)
+suppressMessages({
+  library("plyr")
+  library("tidyverse")
+  library("ggrepel")
+  library("ggthemes")
+  library("grid")
+  library("Seurat")
+  library("gridExtra")
+  library("Matrix")
+  library("DropletUtils")
+  library("Hmisc")
+})
 
 # Initialize paths
 seurat_object <- "path/to/seurat_object"

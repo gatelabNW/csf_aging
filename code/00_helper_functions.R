@@ -16,9 +16,13 @@
 # Define functions
 
 # Load in libraries
-library_vector <- c("ggplot2", "ggpubr", "grid", "ggthemes", "ggrepel")
-if (!require("pacman")) install.packages("pacman")
-pacman::p_load(char = library_vector)
+suppressMessages({
+  library("ggrepel")
+  library("tidyverse")
+  library("ggpubr")
+  library("ggthemes")
+  library("grid")
+})
 
 # Negation of %in%
 '%!in%' <- Negate('%in%')

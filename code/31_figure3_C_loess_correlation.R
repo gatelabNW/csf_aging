@@ -16,10 +16,15 @@
 # Initialization
 
 # Load in libraries
-library_vector <- c("plyr", "tidyverse", "ggpubr", "ggrepel", "ggthemes",
-                    "scales", "pheatmap")
-if (!require("pacman")) install.packages("pacman")
-pacman::p_load(char = library_vector)
+suppressMessages({
+  library("plyr")
+  library("tidyverse")
+  library("ggrepel")
+  library("ggthemes")
+  library("ggpubr")
+  library("scales")
+  library("pheatmap")
+})
 
 # Initialize paths
 data_path <- "path/to/pseudobulk_data"

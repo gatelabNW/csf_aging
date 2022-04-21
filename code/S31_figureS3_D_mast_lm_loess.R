@@ -16,10 +16,17 @@
 # Initialization
 
 # Load in libraries
-library_vector <- c("plyr", "tidyverse", "ggrepel", "ggthemes", "Seurat", "grid",
-                    "scales", "doMC", "UpSetR")
-if (!require("pacman")) install.packages("pacman")
-pacman::p_load(char = library_vector)
+suppressMessages({
+  library("plyr")
+  library("tidyverse")
+  library("ggrepel")
+  library("ggthemes")
+  library("grid")
+  library("Seurat")
+  library("scales")
+  library("doMC")
+  library("UpSetR")
+})
 
 # Initialize paths
 mast_path <- "path/to/mast/age_bin/results/"

@@ -16,9 +16,10 @@
 # Initialization
 
 # Load in libraries
-library_vector <- c("tidyverse", "purrr", "data.table")
-if (!require("pacman")) install.packages("pacman")
-pacman::p_load(char = library_vector)
+suppressMessages({
+  library("data.table")
+  library("tidyverse")
+})
 
 # Organize inputs
 tcr_dir <- "/path/to/cellranger_vdj/results"

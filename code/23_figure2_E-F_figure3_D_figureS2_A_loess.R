@@ -19,11 +19,20 @@
 # Initialization
 
 # Load in libraries
-library_vector <- c("ggplot2", "ggpubr", "ggrepel", "ggthemes", "Seurat",
-                    "tidyverse", "plyr", "dplyr", "factoextra", "scales",
-                    "patchwork", "clusterProfiler", "pheatmap", "colorspace")
-if (!require("pacman")) install.packages("pacman")
-pacman::p_load(char = library_vector)
+suppressMessages({
+  library("plyr")
+  library("tidyverse")
+  library("ggrepel")
+  library("ggthemes")
+  library("ggpubr")
+  library("Seurat")
+  library("factoextra")
+  library("scales")
+  library("patchwork")
+  library("clusterProfiler")
+  library("pheatmap")
+  library("colorspace")
+})
 
 # Initialize paths
 data_path <- "path/to/pseudobulk/data"

@@ -16,11 +16,17 @@
 # Initialization
 
 # Load in libraries
-library_vector <- c("ggplot2", "ggpubr", "ggrepel", "ggthemes", "Seurat",
-                    "UpSetR", "nVennR", "tidyverse", "plyr", "dplyr",
-                    "DEswan", "scales")
-if (!require("pacman")) install.packages("pacman")
-pacman::p_load(char = library_vector)
+suppressMessages({
+  library("plyr")
+  library("tidyverse")
+  library("ggpubr")
+  library("ggthemes")
+  library("ggrepel")
+  library("Seurat")
+  library("UpSetR")
+  library("DEswan")
+  library("scales")
+})
 
 # Initialize paths
 lm_deg_path <- "path/to/linear_modeling/results/lm_age_stats.csv"

@@ -16,10 +16,16 @@
 # Initialization
 
 # Load in libraries
-library_vector <- c("plyr", "gridExtra", "Seurat", "Matrix", "tidyverse",
-                    "SoupX", "DropletUtils", "purrr", "Hmisc")
-if (!require("pacman")) install.packages("pacman")
-pacman::p_load(char = library_vector)
+suppressMessages({
+  library("plyr")
+  library("tidyverse")
+  library("gridExtra")
+  library("Matrix")
+  library("SoupX")
+  library("Seurat")
+  library("DropletUtils")
+  library("Hmisc")
+})
 
 # Initialize paths
 gex_dir <- "path/to/cellranger_count/output"
