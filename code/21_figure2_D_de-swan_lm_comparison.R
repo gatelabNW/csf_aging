@@ -10,7 +10,7 @@
 #
 # Date: 02-14-2022
 # Written by: Natalie Piehl
-# Summary: Run DE-SWAN on healthy cells
+# Summary: Compare DE-SWAN to linear model results
 #
 #-------------------------------------------------------------------------------
 # Initialization

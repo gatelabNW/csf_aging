@@ -10,7 +10,7 @@
 #
 # Date: 03-02-2022
 # Written by: Natalie Piehl
-# Summary: Run DE with MAST on CI vs HC in clonal vs nonclonal T cells
+# Summary: Run DE with MAST on CI vs HC in clonal and nonclonal T cells
 #
 #-------------------------------------------------------------------------------
 # Initialization
