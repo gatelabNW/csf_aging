@@ -9,7 +9,7 @@
 # ------------------------------------------------------------------------------
 #
 # Date: 04-20-2022
-# Written by: Natalie Piehl, Emma Tapp
+# Written by: Emma Tapp, Natalie Piehl
 # Summary: Define helper functions used across the project
 #
 #-------------------------------------------------------------------------------
