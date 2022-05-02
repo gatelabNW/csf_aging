@@ -35,6 +35,9 @@ seurat_object <- "path/to/seurat_object/"
 bulk_data <- "path/to/pseudobulked/data/"
 output_dir <- "path/to/export/results"
 
+# Source helper functions
+source("code/00_helper_functions.R")
+
 # Generate output directory
 dir.create(output_dir, showWarnings = FALSE, recursive = TRUE)
 

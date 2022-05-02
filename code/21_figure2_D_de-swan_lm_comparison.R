@@ -33,6 +33,9 @@ lm_deg_path <- "path/to/linear_modeling/results/lm_age_stats.csv"
 deswan_dir <- "path/to/deswan/store/"
 output_dir <- "path/to/export/results"
 
+# Source helper functions
+source("code/00_helper_functions.R")
+
 # Generate output/store directories
 dir.create(output_dir, showWarnings = FALSE, recursive = TRUE)
 

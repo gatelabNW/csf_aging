@@ -30,6 +30,9 @@ suppressMessages({
 seurat_object <- "path/to/seurat_object"
 output_dir <- "path/to/export/results"
 
+# Source helper functions
+source("code/00_helper_functions.R")
+
 # Generate output directories
 pca_plot_dir <- paste0(output_dir, "/pca_plots/")
 umap_plot_dir <- paste0(output_dir, "/umap_plots/")

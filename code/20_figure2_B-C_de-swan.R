@@ -34,6 +34,9 @@ seurat_object <- "path/to/seurat_object"
 output_dir <- "path/to/export/results"
 store_dir <- "path/to/store/objects"
 
+# Source helper functions
+source("code/00_helper_functions.R")
+
 # Generate output/store directories
 dir.create(output_dir, showWarnings = FALSE, recursive = TRUE)
 dir.create(store_dir, showWarnings = FALSE, recursive = TRUE)

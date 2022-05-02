@@ -33,6 +33,9 @@ seurat_object <- "path/to/seurat_object/"
 mast_agebin_dir <- "path/to/mast/age_bin/results"
 output_dir <- "path/to/export/results"
 
+# Source helper functions
+source("code/00_helper_functions.R")
+
 # Generate output directory
 dir.create(output_dir, showWarnings = FALSE, recursive = TRUE)
 

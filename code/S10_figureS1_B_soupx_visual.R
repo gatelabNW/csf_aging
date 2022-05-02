@@ -31,6 +31,9 @@ suppressMessages({
 gex_dir <- "path/to/cellranger_count/output"
 output_dir <- "path/to/export/results"
 
+# Source helper functions
+source("code/00_helper_functions.R")
+
 # Generate output directory
 dir.create(output_dir, showWarnings = FALSE, recursive = TRUE)
 

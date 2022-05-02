@@ -25,6 +25,9 @@ suppressMessages({
 tcr_dir <- "/path/to/cellranger_vdj/results"
 output_dir <- "/path/to/output/directory"
 
+# Source helper functions
+source("code/00_helper_functions.R")
+
 # Create output directory
 dir.create(output_dir, showWarnings = FALSE, recursive = TRUE)
 

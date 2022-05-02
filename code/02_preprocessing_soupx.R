@@ -30,6 +30,9 @@ suppressMessages({
 gex_dir <- "/path/to/cellranger_count/results"
 soupx_dir <- "/path/to/soupx_output/directory"
 
+# Source helper functions
+source("code/00_helper_functions.R")
+
 # Create output directory
 dir.create(soupx_dir, showWarnings = FALSE, recursive = TRUE)
 

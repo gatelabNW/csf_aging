@@ -33,6 +33,9 @@ suppressMessages({
 seurat_object <- "path/to/seurat_object"
 output_dir <- "path/to/export/results"
 
+# Source helper functions
+source("code/00_helper_functions.R")
+
 # Generate output directories
 dir.create(output_dir, showWarnings = FALSE, recursive = TRUE)
 

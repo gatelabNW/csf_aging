@@ -38,6 +38,9 @@ suppressMessages({
 data_path <- "path/to/pseudobulk/data"
 output_parent_dir <- "path/to/export/results"
 
+# Source helper functions
+source("code/00_helper_functions.R")
+
 # Generate output directory
 dir.create(output_parent_dir, showWarnings = FALSE, recursive = TRUE)
 
