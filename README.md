@@ -1,4 +1,4 @@
-# Distinct cerebrospinal fluid immune perturbations in healthy brain aging and cognitive impairment
+# Activated monocytes recruit CD8 T cells to the cerebrospinal fluid during cognitive impairment
 [Gate Lab at Northwestern University](https://sites.northwestern.edu/gatelab/)
 
 ## Abstract
