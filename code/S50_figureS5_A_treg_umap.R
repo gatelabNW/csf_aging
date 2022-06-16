@@ -38,7 +38,7 @@ source("code/00_helper_functions.R")
 dir.create(output_dir, showWarnings = FALSE, recursive = TRUE)
 
 #------------------------------------------------------------------------------
-# Generate Treg UMAPs (Fig S4A)
+# Generate Treg UMAPs (Fig S5A)
 
 # Subset normalized frequency for HC Tregs
 s@meta.data$normalized_frequency[

@@ -8,9 +8,9 @@
 # -----                                                                    -----
 # ------------------------------------------------------------------------------
 #
-# Date: 03-02-2022
+# Date: 01-18-2022
 # Written by: Natalie Piehl
-# Summary: Run DE with MAST on CI vs HC in clonal and nonclonal T cells
+# Summary: Run DE with MAST on diagnosis
 #
 #-------------------------------------------------------------------------------
 # Initialization
@@ -21,12 +21,11 @@ suppressMessages({
   library("tidyverse")
   library("ggrepel")
   library("ggthemes")
-  library("ggpubr")
+  library("grid")
   library("Seurat")
   library("scales")
   library("doMC")
   library("UpSetR")
-  library("colorspace")
 })
 
 # Initialize paths
@@ -40,14 +39,14 @@ source("code/00_helper_functions.R")
 dir.create(output_dir, showWarnings = FALSE, recursive = TRUE)
 
 # Set core number for parallel model fitting
-registerDoMC(cores = 3)
+registerDoMC(cores = 12)
 
 # Specify thresholds
 padj.thresh <- 0.01
 lfc.thresh <- 0.25
 
-#------------------------------------------------------------------------------
-# Run DE (Fig 4D)
+#-------------------------------------------------------------------------------
+# Run DE (Fig S4B)
 
 # Load Seurat object
 load(seurat_object)
@@ -56,22 +55,19 @@ load(seurat_object)
 DefaultAssay(object = s) <- "RNA"
 s <- NormalizeData(s, verbose = FALSE)
 
-# Subset clonal and nonclonal cells
-s_clonal <- subset(s, clonal == "C")
-s_nonclonal <- subset(s, clonal == "NC")
+# Set Ident to Diagnosis
+s <- SetIdent(s, value = "Diagnosis")
 
-run_de <- function(cell_type, s) {
-  # Generate labels for naming
+run_de <- function(cell_type) {
+  # Generate cell typ label
   cell_type_label <- gsub("/", "", cell_type)
   cell_type_label <- gsub(" ", "_", cell_type_label)
-  clonality <- gsub("s_", "", deparse(substitute(s)))
   
-  # Find DEGs b/w CI and NC
-  s <- SetIdent(s, value = "Diagnosis")
+  # Find DEGs b/w CI and HC
   degs <-FindMarkers(object = subset(s, cluster_ident == cell_type),
                      ident.1 = "CI",
                      ident.2 = "HC",
-                     latent.vars = c("sex", "age"),
+                     latent.vars = c("sex"),
                      test.use = "MAST",
                      logfc.threshold = -Inf,
                      min.pct = 0.1,
@@ -83,62 +79,78 @@ run_de <- function(cell_type, s) {
   
   # Run Benjamini-Hochberg adjustment
   degs$BH <- p.adjust(degs$p_val, method = "BH")
-  
+
   # Write out results
-  write.csv(degs, paste0(output_dir, cell_type_label, "_", clonality, "_CI_vs_HC_degs.csv"))
+  write.csv(degs, paste0(output_dir, cell_type_label, "_CI_vs_HC_degs.csv"))
   
   # Create volcano plot
-  volcano_plot(degs, title = paste0(clonality, " CI vs HC in ", cell_type),
-               file = paste0(output_dir, cell_type_label, "_", clonality, "_CI_vs_HC_volcano.pdf"),
+  volcano_plot(degs, title = paste0("CI vs HC in ", cell_type),
+               file = paste0(output_dir, cell_type_label,
+                             "_CI_vs_HC_volcano.pdf"),
                padj.thresh = padj.thresh, lfc.thresh = lfc.thresh)
 }
 
 # Run DE on all celltypes
-cell_types <- c("CD4+ T Cells", "CD8+ T Cells", "T Regulatory Cells")
-mclapply(cell_types, run_de, s = s_clonal, mc.cores = 3)
-mclapply(cell_types, run_de, s = s_nonclonal, mc.cores = 3)
+cell_types <- unique(s[["cluster_ident"]])[,1]
+cell_types <- cell_types[
+  cell_types %!in% c("CD4+/CD8+ T Cells", "Undetermined")]
+mclapply(cell_types, run_de, mc.cores = 12)
 
 #------------------------------------------------------------------------------
-# Create Upset plot (Fig 4E)
+# Generate Upset plot (Fig S4A)
 
-# Initialize sig gene lists
-sig_genes_clonal_ls <- list()
+# Initialize sig gene list
+sig_genes_ls <- list()
 
 # Create list with sig genes for each cell type
 for (cell_type in cell_types) {
-  # Define cell type label
+  # Generate cell type label
   cell_type_label <- gsub("/", "", cell_type)
   cell_type_label <- gsub(" ", "_", cell_type_label)
   
   # Load in degs
-  degs_c <- read.csv(paste0(output_dir, cell_type_label, "_clonal_CI_vs_HC_degs.csv"))
-
+  degs <- read.csv(paste0(output_dir, cell_type_label, "_CI_vs_HC_degs.csv"))
+  
   # Identify sig genes
-  sig_genes_c <- degs_c[which(degs_c$BH <= padj.thresh & abs(degs_c$avg_log2FC) >= lfc.thresh),]
-
+  sig_genes <- degs[
+    which(degs$BH < padj.thresh & abs(degs$avg_log2FC) > lfc.thresh),]
+  
   # Add sig genes to list
-  sig_genes_clonal_ls[[cell_type]] <- sig_genes_c$X
+  sig_genes_ls[[cell_type]] <- sig_genes$X
 }
 
 # Find number of genes in each set
-num_degs_c <- sapply(sig_genes_clonal_ls, length)
-sig_genes_clonal_ls <- sig_genes_clonal_ls[order(-num_degs_c)]
-sig_genes_clonal_ls <- sig_genes_clonal_ls[ lapply(sig_genes_clonal_ls, length) > 0 ]
+num_degs <- data.frame(matrix(ncol = 2, nrow = 0))
+for (key in names(sig_genes_ls)) {
+  num_degs <- rbind(num_degs, data.frame(key, length(sig_genes_ls[[key]])))
+}
+
+# Get order of sets for coloring
+num_degs <- num_degs[order(-num_degs[, 2]),]
 
 # Define colors
-color_vector_c <- mapvalues(
-  names(sig_genes_clonal_ls),
-  from = c("CD4+ T Cells", "CD8+ T Cells", "T Regulatory Cells"),
-  to = c("darkturquoise", "lawngreen", "navy")
+color_vector <- num_degs[, 1]
+color_vector <- mapvalues(
+  color_vector,
+  from = c(
+    "CD4+ T Cells", "CD8+ T Cells", "CD4+/CD8+ T Cells",
+    "CD14+/CD16+/CD68hi Monoctyes", "DC", "NK Cells",
+    "CD14+/CD16-/CD68lo Monocytes", "T Regulatory Cells", "Plasma Cells",
+    "CD14+/CD16+/CD68mid Monocytes", "B Cells", "Undetermined"
+  ),
+  to = c(
+    "darkturquoise", "lawngreen", "dodgerblue", "red",
+    "lightpink", "hotpink", "gold1", "navy", "violet",
+    "darkorange", "darkviolet", "gray"
+  )
 )
 
 # Create upset plot and export
-pdf(file = paste0(output_dir, "/clonal_CI_vs_HC_upset_celltype.pdf"))
+pdf(file = paste0(output_dir, "/upset_celltype.pdf"))
 upset(
-  fromList(sig_genes_clonal_ls),
-  nsets = length(sig_genes_clonal_ls),
+  fromList(sig_genes_ls),
+  nsets = length(sig_genes_ls),
   order.by = "freq",
-  sets.bar.color = color_vector_c,
-  text.scale = 2
+  sets.bar.color = color_vector
 )
 dev.off()

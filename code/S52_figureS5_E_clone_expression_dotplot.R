@@ -165,7 +165,7 @@ df_long[,c("type.x", "type.y")] <- NULL
 names(df_long)[ names(df_long) %in% c("expression.x", "expression.y")] <- c("expression", "pct_cells")
 
 #------------------------------------------------------------------------------
-# Generate exports (Fig S4E)
+# Generate exports (Fig S5E)
 
 # Export data
 write.csv(df_long, paste0(output_dir, cell_type_label, "_topclones_and_bootstrap_singletons_HCvsMCIAD_avgexpression.csv"))

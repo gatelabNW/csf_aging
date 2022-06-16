@@ -79,7 +79,7 @@ clonotypes$clonotype_id.long <- paste(clonotypes$CDR3a,
                                       clonotypes$CDR3b, sep = "_")
 
 #------------------------------------------------------------------------------
-# Network construction (Fig 4B)
+# Network construction (Fig 4A)
 
 # Load homemade function (from Hamilton/Benoit)
 mat2edge<-function(x,cutoff){

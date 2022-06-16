@@ -77,7 +77,7 @@ df$bin[ which(df$Diagnosis == "CI") ] <- "CI"
 table(df$bin)
 
 #------------------------------------------------------------------------------
-# Calculate number of CI and HC connections (Fig 4C)
+# Calculate number of CI and HC connections (Fig 4B)
 
 # Define function to find number of connections
 find_num_connections <- function(age_bin, cell_type = NULL) {
