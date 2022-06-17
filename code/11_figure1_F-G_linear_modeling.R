@@ -104,9 +104,6 @@ for (cell_type in cell_types) {
   # Initialize beta coefficient + p-value df
   age_stats_df <- data.frame(matrix(ncol = 3, nrow = 0))
   
-  # Initialize beta coefficient + p-value df
-  eta_df <- data.frame(matrix(ncol = 3, nrow = 0))
-  
   for (gene in colnames(rna_data)) {
     # Move to next iteration if column is age
     if (gene == "age" |
