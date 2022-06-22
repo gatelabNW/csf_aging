@@ -17,7 +17,7 @@ scavenger receptor, was elevated in CSF of cognitively impaired subjects and cor
 damage. Cumulatively, these results identify the CXCL16-CXCR6 signaling axis as a mechanism for antigenspecific
 T cell entry into brains with neurodegeneration.
 
-![merged_about_fig](https://user-images.githubusercontent.com/91904251/164067655-7c415284-46c4-42c9-8b06-af50763686fe.png)
+![merged_about_fig](https://user-images.githubusercontent.com/91904251/175093470-eb5fec04-98d8-46d8-b05e-e89b477e4b4c.png)
 
 ## About
 This repository contains code used to process and analyze scRNA-TCRseq data from the **Distinct cerebrospinal fluid immune perturbations in healthy brain aging and cognitive impairment** study. 
