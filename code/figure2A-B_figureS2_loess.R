@@ -12,9 +12,6 @@
 # Written by: Natalie Piehl
 # Summary: Generate HC LOESS trajectories
 #
-# - Fig 2E-F, S2A generated with `Diagnosis <- "HC"` 
-# - Fig 3D generated with `Diagnosis <- "compare"` 
-#
 #-------------------------------------------------------------------------------
 # Initialization
 
