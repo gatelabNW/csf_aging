@@ -42,7 +42,7 @@ dir.create(output_dir, showWarnings = FALSE, recursive = TRUE)
 registerDoMC(cores = 12)
 
 #-------------------------------------------------------------------------------
-# Run DE (Fig 2G)
+# Run DE (Fig 2C)
 
 # Load Seurat object
 load(seurat_object)

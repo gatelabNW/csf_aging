@@ -138,7 +138,7 @@ for (cell_type in cell_types) {
   age_stats_df$BH <- p.adjust(age_stats_df$pval, method = "BH")
   
   #------------------------------------------------------------------------------
-  # Plot lm results (Fig 1G)
+  # Plot lm results (Fig 1H)
   
   # Generate volcano plot
   volcano_plot(age_stats_df, 
@@ -158,7 +158,7 @@ for (cell_type in cell_types) {
 write.csv(stats, paste0(output_dir, "/lm_age_stats.csv"))
 
 #------------------------------------------------------------------------------
-# Create Upset plot (Fig 1F)
+# Create Upset plot (Fig 1G)
 
 # Isolate sig genes
 sig_genes <- stats[which(stats$BH <= threshold.padj & abs(stats$avg_log2FC) >= threshold.beta),]

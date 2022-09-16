@@ -77,7 +77,7 @@ cellchat <- netAnalysis_computeCentrality(cellchat, slot.name = "netP")
 save(cellchat, file = paste0(output_dir, "cellchat"))
 
 #-------------------------------------------------------------------------------
-# Generate interaction strength scatter plot (Fig 3C)
+# Generate interaction strength scatter plot (Fig 3B)
 
 # Define celltype colors
 colors_use <- c(
@@ -141,7 +141,7 @@ cell_chat <- netAnalysis_computeCentrality(cellchat, slot.name = "netP")
 save(cellchat, file = paste0(output_dir, "cellchat"))
 
 #-------------------------------------------------------------------------------
-# Generate dot plot of CD68hi -> T cell interactions (Fig 3D)
+# Generate dot plot of CD68hi -> T cell interactions (Fig 3C)
 
 # Generate bubble of CD68hi signaling to t cells
 pdf(paste0(output_dir, "bubble_cd68hi_to_t_cells.pdf"))
@@ -152,7 +152,7 @@ netVisual_bubble(cellchat_ci,
 dev.off()
 
 #-------------------------------------------------------------------------------
-# Generate interaction plots of HC vs CI (Fig 3E)
+# Generate interaction plots of HC vs CI (Fig 3A)
 
 # Make interaction circle plot for HC only
 pdf(paste0(output_dir, "hc_number_of_interactions.pdf"))
@@ -169,7 +169,7 @@ netVisual_circle(cellchat_hc@net$count, weight.scale = T,
 dev.off()
 
 #-------------------------------------------------------------------------------
-# Generate interaction signaling in CI plot (Fig 3F)
+# Generate interaction signaling in CI plot (Fig 3D)
 
 # Generate bubble of CD68hi signaling to t cells increased in CI
 pdf(paste0(output_dir, "bubble_cd68hi_to_t_cells_ci_increased.pdf"))
@@ -180,7 +180,7 @@ netVisual_bubble(cellchat, sources.use = 3, targets.use = c(6),
 dev.off()
 
 #-------------------------------------------------------------------------------
-# Generate plot of CXCL signaling (Fig 3G)
+# Generate plot of CXCL signaling (Fig 3E)
 
 # Make CI CXCL signaling circle plot
 pdf(paste0(output_dir, "celltype_signalling_cxcl.pdf"))

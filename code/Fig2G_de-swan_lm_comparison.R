@@ -81,7 +81,7 @@ q <- lapply(res, `[[`, 2)
 lm_data <- read.csv(lm_deg_path, stringsAsFactors = FALSE)
 
 #------------------------------------------------------------------------------
-# Run comparison and generate upset plot (Fig 1D)
+# Run comparison and generate upset plot (Fig 2G)
 
 # Iterate through up, down, and any direction
 for (direction in c("up", "down", "any")) {

@@ -71,7 +71,7 @@ data_scaled <- data_scaled[ ,names(data) %in% c("age", clust_genes) ]
 data_long <- gather(data_scaled, gene, expression, -age)
 
 #------------------------------------------------------------------------------
-# Generate LOESS plot (Fig 2H)
+# Generate LOESS plot (Fig 2D)
 
 # Add color column
 colors <- c("#ff6d60", "#00fab7", "#ffb922", "grey30")

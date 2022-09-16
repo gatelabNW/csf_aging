@@ -67,7 +67,7 @@ data_scaled <- data_scaled[ ,names(data) %in% c("age", "Diagnosis", genes) ]
 data_long <- gather(data_scaled, gene, expression, -age, -Diagnosis)
 
 #------------------------------------------------------------------------------
-# Plot APOC1, APOE, and PLTP in CI and HC (Fig 3A)
+# Plot APOC1, APOE, and PLTP in CI and HC (Fig 2I)
 
 # Add color column
 colors <- c("#ff6d60", "#00fab7", "#ffb922")

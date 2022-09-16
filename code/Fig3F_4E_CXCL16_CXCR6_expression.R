@@ -60,7 +60,7 @@ set_panel_size(p,
                width = unit(4, "in"), height = unit(6, "in"))
 
 #------------------------------------------------------------------------------
-# Generate CXCL16 violin/box plot (Fig 4I)
+# Generate CXCL16 violin/box plot (Fig 3F)
 
 # Set ident to cell type
 Idents(s) <- "cluster_ident"

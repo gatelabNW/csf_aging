@@ -65,7 +65,7 @@ age_max <- 82
 non_gene_cols <- c("ID", "age", "Diagnosis", "sex", "age_bin", "clonal", "cell_type")
 
 #------------------------------------------------------------------------------
-# Define functions (Fig 2E, Fig 2F, Fig 2G)
+# Define functions (Fig 2A-B, SuppFig2)
 
 subset_parameters <- function(data, param) {
   # Select for param settings

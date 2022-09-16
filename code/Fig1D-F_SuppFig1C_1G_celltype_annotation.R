@@ -78,7 +78,7 @@ s <- IntegrateData(anchorset = anchors, normalization.method = "SCT")
 save(s, file = paste0(output_dir, "s_integrated"))
 
 #------------------------------------------------------------------------------
-# PCA Visualization (Fig S1C)
+# PCA Visualization (SuppFig S1C)
 
 # Set assay to integrated
 DefaultAssay(object = s) <- "integrated"
@@ -368,7 +368,7 @@ print(table(s[["cluster_ident"]]))
 save(s, file = "data/seurat_object_withcelltype_allsamples")
 
 #------------------------------------------------------------------------------
-# Visualize cell types on UMAP (Fig 1C)
+# Visualize cell types on UMAP (Fig 1D)
 
 # Assign levels to cell type
 s <- SetIdent(s, value = "cluster_ident")
@@ -390,7 +390,7 @@ set_panel_size(myplot,
 
 
 #------------------------------------------------------------------------------
-# Visualize cell types on cell marker heatmap (Fig 1D)
+# Visualize cell types on cell marker heatmap (Fig 1E)
 
 # Sample maximum cells from each celltype
 barcode_celltype <- s[["cluster_ident"]]
@@ -435,7 +435,7 @@ ggsave(p, filename = paste0(output_dir, "heatmap_celltype_markers.pdf"),
        width = unit(10, "inch"))
 
 #------------------------------------------------------------------------------
-# Look at cell type composition (Fig 1E)
+# Look at cell type composition (SuppFig 1G)
 
 # Generate table of number of cells per type
 celltype_composition <- table(s[["cluster_ident"]])

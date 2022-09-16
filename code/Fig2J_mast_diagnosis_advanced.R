@@ -48,7 +48,7 @@ registerDoMC(cores = 6)
 load(seurat_object)
 
 #-------------------------------------------------------------------------------
-# Run DE on diagnosis in advanced age and generate volcano plot (Fig 3B)
+# Run DE on diagnosis in advanced age and generate volcano plot (Fig 2J)
 
 # Run standard normalization
 DefaultAssay(object = s) <- "RNA"
