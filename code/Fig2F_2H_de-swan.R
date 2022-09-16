@@ -143,7 +143,7 @@ cell_types <- cell_types[cell_types %!in% c("CD4+/CD8+ T Cells", "Undetermined",
 lapply(cell_types, run_deswan)
 
 #------------------------------------------------------------------------------
-# Generate line plot of DEG number per cell type (Fig 2B)
+# Generate line plot of DEG number per cell type (Fig 2F)
 
 # Initialize list of sig genes
 sig_gene_list <- list()
@@ -221,7 +221,7 @@ set_panel_size(p,
                                 "allcelltypes_q1e-04_b1e-04_numgenes_10centers_10bootstrap20cells_bucket4.pdf"))
 
 #------------------------------------------------------------------------------
-# Generate manhattan plot of adjusted p-values at age 78 (Fig 2C)
+# Generate manhattan plot of adjusted p-values at age 78 (Fig 2H)
 
 # Function to load data for each cell type
 extract_data <- function(cell_type) {
