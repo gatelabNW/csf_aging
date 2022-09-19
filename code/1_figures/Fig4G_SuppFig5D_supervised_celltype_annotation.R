@@ -35,7 +35,7 @@ source("code/00_helper_functions.R")
 dir.create(output_dir, showWarnings = FALSE, recursive = TRUE)
 
 #------------------------------------------------------------------------------
-# Format data
+# Run supervised celltype annotation
 
 # Load in seurat object
 load(seurat_object)
@@ -73,6 +73,9 @@ s
 
 # Save updated object
 save(s, file = paste0(output_dir, "s_sup_clustering"))
+
+#------------------------------------------------------------------------------
+# Generate UMAPs (Fig 4G and SuppFig 5D)
 
 # Visualize results
 p1 = DimPlot(s, reduction = "umap", group.by = "predicted.celltype.l1", label = TRUE, label.size = 3, repel = TRUE)
