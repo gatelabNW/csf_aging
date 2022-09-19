@@ -34,7 +34,7 @@ qc_plot_dir <- "/path/to/export/qc_plots/to"
 seurat_obj_dir <- "/path/to/export/seurat_object/to"
 
 # Source helper functions
-source("../0_preprocessing/00_helper_functions.R")
+source("00_helper_functions.R")
 
 # Create output directories
 dir.create(qc_plot_dir, showWarnings = FALSE, recursive = TRUE)
