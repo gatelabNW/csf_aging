@@ -31,7 +31,7 @@ gex_dir <- "/path/to/cellranger_count/results"
 soupx_dir <- "/path/to/soupx_output/directory"
 
 # Source helper functions
-source("../0_preprocessing/00_helper_functions.R")
+source("00_helper_functions.R")
 
 # Create output directory
 dir.create(soupx_dir, showWarnings = FALSE, recursive = TRUE)
