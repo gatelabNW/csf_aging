@@ -1,7 +1,7 @@
 # ------------------------------------------------------------------------------
 # -----                                                                    -----
-# -----         Activated monocytes recruit CD8 T cells to the             -----
-# -----         cerebrospinal fluid during cognitive impairment            -----
+# -----     Single cell transcriptomics reveals CD8 T cell recruitment     -----
+# -----       to the cerebrospinal fluid during cognitive impairment       -----
 # -----                                                                    -----
 # -----                           Gate Lab                                 -----
 # -----                     Northwestern University                        -----
@@ -34,7 +34,7 @@ qc_plot_dir <- "/path/to/export/qc_plots/to"
 seurat_obj_dir <- "/path/to/export/seurat_object/to"
 
 # Source helper functions
-source("code/00_helper_functions.R")
+source("../0_preprocessing/00_helper_functions.R")
 
 # Create output directories
 dir.create(qc_plot_dir, showWarnings = FALSE, recursive = TRUE)
