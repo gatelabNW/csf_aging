@@ -27,7 +27,7 @@ seurat_object <- "path/to/seurat_object/"
 output_dir <- "path/to/export/results"
 
 # Source helper functions
-source("../0_preprocessing/00_helper_functions.R")
+source("00_helper_functions.R")
 
 # Generate output directory
 dir.create(output_dir, showWarnings = FALSE, recursive = TRUE)
