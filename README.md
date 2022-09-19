@@ -2,20 +2,7 @@
 [Gate Lab at Northwestern University](https://sites.northwestern.edu/gatelab/)
 
 ## Abstract
-Cerebrospinal fluid (CSF) contains a tightly regulated, specialized immune system. Yet, little is known about how
-CSF immunity is altered with aging or neurodegenerative disease. Here, we performed single cell RNA
-sequencing (scRNAseq) on CSF collected from 45 cognitively normal subjects ranging from 54-82 years old. We
-then assessed age-related transcriptomic changes using bioinformatic approaches, including linear and local
-polynomial regression. We reveal increased expression of lipid transport genes _Apolipoprotein E (APOE)_,
-_Apolipoprotein C1 (APOC1)_ and _Phospholipid Transfer Protein (PLTP)_ in activated monocytes with age. We then
-compared CSF immune systems from cognitively normal subjects to 14 subjects with mild cognitive impairment
-or Alzheimer’s disease. In cognitively impaired subjects, downregulation of lipid transport genes in activated
-monocytes occurred concomitantly with altered antigen presentation and cytokine signaling to CD8 T cells.
-Clonally expanded CD8 T cells upregulated _C-X-C Motif Chemokine Receptor 6 (CXCR6)_ in cognitively impaired
-subjects. The CXCR6 ligand, C-X-C Motif Chemokine Ligand 16 (CXCL16), a chemoattractant and lipoprotein
-scavenger receptor, was elevated in CSF of cognitively impaired subjects and correlated with neuroaxonal
-damage. Cumulatively, these results identify the CXCL16-CXCR6 signaling axis as a mechanism for antigenspecific
-T cell entry into brains with neurodegeneration.
+Cerebrospinal fluid (CSF) contains a tightly regulated immune system. Yet, little is known about how CSF immunity is altered with aging or neurodegenerative disease. Here, we performed single cell RNA sequencing on CSF from 45 cognitively normal subjects ranging from 54-82 years old. We reveal upregulation of lipid transport genes in activated monocytes with age. We then compared this cognitively normal cohort to 14 cognitively impaired subjects. In cognitively impaired subjects, downregulation of lipid transport genes in activated monocytes occurred concomitantly with altered antigen presentation and cytokine signaling to CD8 T cells. Clonally expanded CD8 effector memory T cells upregulated +C-X-C Motif Chemokine Receptor 6 (CXCR6)_ in cognitively impaired subjects. The CXCR6 ligand, C-X-C Motif Chemokine Ligand 16 (CXCL16), a chemoattractant and lipoprotein receptor, was elevated in CSF of cognitively impaired subjects. Cumulatively, these results identify CXCL16-CXCR6 signaling as a mechanism for antigen-specific T cell entry into brains with neurodegeneration. 
 
 ![merged_about_fig](https://user-images.githubusercontent.com/91904251/175093470-eb5fec04-98d8-46d8-b05e-e89b477e4b4c.png)
 
