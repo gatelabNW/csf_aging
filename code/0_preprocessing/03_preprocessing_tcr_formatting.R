@@ -26,7 +26,7 @@ tcr_dir <- "/path/to/cellranger_vdj/results"
 output_dir <- "/path/to/output/directory"
 
 # Source helper functions
-source("../0_preprocessing/00_helper_functions.R")
+source("00_helper_functions.R")
 
 # Create output directory
 dir.create(output_dir, showWarnings = FALSE, recursive = TRUE)
