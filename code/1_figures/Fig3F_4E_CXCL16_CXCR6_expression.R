@@ -36,7 +36,7 @@ source("code/00_helper_functions.R")
 dir.create(output_dir, showWarnings = FALSE, recursive = TRUE)
 
 #------------------------------------------------------------------------------
-# Generate CXCR6 violin/box plot (Fig 4E)
+# Generate CXCR6 clonal and diagnosis violin/box plot (Fig 4E)
 
 # Load in seurat object
 load(seurat_object)
@@ -46,6 +46,9 @@ DefaultAssay(object = s) <- "RNA"
 s <- NormalizeData(s, verbose = FALSE) %>%
   FindVariableFeatures(selection.method = "vst",
                        verbose = FALSE)
+
+# Set ident to Diagnosis
+Idents(s) <- "Diagnosis"
 
 # Subset for C and NC in CD8+ T Cells
 s_sub <- subset(s, clonal %in% c("C", "NC") & cluster_ident == "CD8+ T Cells")
@@ -60,7 +63,7 @@ set_panel_size(p,
                width = unit(4, "in"), height = unit(6, "in"))
 
 #------------------------------------------------------------------------------
-# Generate CXCL16 violin/box plot (Fig 3F)
+# Generate CXCL16 cell type violin plot (Fig 3F)
 
 # Set ident to cell type
 Idents(s) <- "cluster_ident"
@@ -75,15 +78,27 @@ levels(s) <- c(
 s <- subset(s, cluster_ident %!in% c("Undetermined", "CD4+/CD8+ T Cells"))
 
 # Generate violin plot
-p <- VlnPlot(s, features = "CXCL16", pt.size = 0,
+p <- VlnPlot(s, features = "CXCL16", pt.size = 0.001,
              log = TRUE, cols = c(
                "darkturquoise", "lawngreen", "navy",
                "hotpink", "lightpink", 
                "gold1", "darkorange", "red",
                "darkviolet", "violet"
              )) +
-  geom_boxplot(width=0.5, outlier.shape = NA)
 p
 set_panel_size(p,
                file = paste0(output_dir, "cxcl16_violin.pdf"),
                width = unit(4, "in"), height = unit(6, "in"))
+
+# Generate violin plot
+p <- VlnPlot(s, features = "CXCR6", pt.size = 0.001,
+             log = TRUE, cols = c(
+               "darkturquoise", "lawngreen", "navy",
+               "hotpink", "lightpink", 
+               "gold1", "darkorange", "red",
+               "darkviolet", "violet"
+             ))
+p
+set_panel_size(p,
+               file = paste0(output_dir, "cxcr6_violin.pdf"),
+               width = unit(6, "in"), height = unit(4, "in"))

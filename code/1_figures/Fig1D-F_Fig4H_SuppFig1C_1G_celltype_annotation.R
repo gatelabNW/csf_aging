@@ -107,7 +107,7 @@ set_panel_size(myplot,
 )
 
 #------------------------------------------------------------------------------
-# Clustering and UMAP visualization
+# Clustering and UMAP visualization (Fig 4H)
 
 # Cluster Cells on SCT integrated assay
 s <- FindNeighbors(s, dims = 1:15)
