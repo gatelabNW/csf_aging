@@ -1,4 +1,4 @@
-# Single cell transcriptomics reveals CD8 T cell recruitment to the cerebrospinal fluid during cognitive impairment
+# Single cell transcriptomics reveals cerebrospinal fluid immune dysregulation during healthy brain aging and cognitive impairment
 [Gate Lab at Northwestern University](https://sites.northwestern.edu/gatelab/)
 
 ## Abstract
