@@ -27,7 +27,6 @@ suppressMessages({
   library("Seurat")
   library("ggpubr")
   library("scales")
-  library("immunarch")
 })
 
 # Initialize paths
