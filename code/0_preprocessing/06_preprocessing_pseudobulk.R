@@ -129,7 +129,7 @@ save(data, file = paste0(output_dir, "bulk_expression"))
 data <- GetAssayData(object = s, assay = "RNA", slot = "counts") %>% as.matrix()
 
 # Subset over 10%
-data <- data[ which((rowSums(data) / ncol(data)) > .1), ]
+data <- data[ which((rowSums(data > 0) / ncol(data)) > .1), ]
 over10_genes <- rownames(data)
 
 # Remove junk
